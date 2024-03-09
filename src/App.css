@@ -1,0 +1,755 @@
+* {
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  margin: 0 auto;
+  padding: 0;
+}
+.dark-mode {
+  background-color: #212121;
+  transition: 1s ease;
+  color: white;
+}
+.wrapper {
+  min-width: 100%;
+  min-height: 100vh;
+  transition: 1s ease;
+}
+.container {
+  min-width: 100%;
+  min-height: 100vh;
+  background-color: #99999942;
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+.header {
+  max-width: 2200px;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+.logoDiv {
+  margin: 0;
+  width: 200px;
+  margin-left: 0;
+}
+.header-list {
+  width: 400px;
+  display: flex;
+  align-items: center;
+}
+.headerItem {
+  padding: 7px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.activeBtn {
+  background-color: #e9e9e9ac;
+}
+.headerItem:hover {
+  background-color: #e9e9e9ac;
+}
+.headerBtns {
+  margin: 0;
+  width: 200px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin-right: 0;
+}
+.language {
+  width: 100px;
+}
+#language {
+  width: 100%;
+  height: 30px;
+  outline: none;
+  border: 1px solid #e9e9e9;
+  border-radius: 5px;
+}
+#language > option {
+  height: 40px;
+}
+
+.toggle {
+  background-color: transparent;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  line-height: 1;
+}
+.toggle:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.input {
+  display: none;
+}
+
+.icon {
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+  transition: transform 500ms;
+}
+
+.icon--moon {
+  transition-delay: 200ms;
+  color: black;
+}
+
+.icon--sun {
+  transform: scale(0);
+  color: yellow;
+}
+
+#switch:checked + .icon--moon {
+  transform: rotate(360deg) scale(0);
+}
+
+#switch:checked ~ .icon--sun {
+  transition-delay: 200ms;
+  transform: scale(1) rotate(360deg);
+}
+.settingIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+.settingSite {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.settingIcon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.settingIcon:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.DeActiveContent{
+  display: none;
+}
+.ActiveContent{
+  display: block;
+}
+.main {
+  max-width: 2000px;
+  width: 100%;
+  padding: 0 50px;
+}
+.title{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  font-size: 23px;
+}
+.sobiqItems{
+  padding: 15px 0 35px 0;
+}
+.newUser {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+.addUser {
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0;
+  border: none;
+  outline: none;
+  background-color: blueviolet;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.addUser > i {
+  margin-left: 10px;
+}
+.usersBox {
+  min-width: 100%;
+  margin-top: 30px;
+  padding: 15px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.user1Search {
+  min-width: 100%;
+  height: 45px;
+  border-radius: 7px;
+}
+#search1 {
+  width: 100%;
+  height: 100%;
+  padding: 0 15px;
+  border-radius: 7px;
+  border: 1px solid #999;
+  outline: none;
+}
+.searchList {
+  width: 100%;
+  margin-top: 30px;
+}
+.searchHeader {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Ustunlar soni 5 ga teng bo'lsin */
+  gap: 10px; /* Uchun oralig'i o'rnaturish */
+  border-bottom: 1px solid #999;
+}
+.userName,
+.userSurname,
+.userLocation,
+.userDebt {
+  grid-column: span 1; /* Har bir element 1 ustunni boshatadi */
+}
+
+ .searchHeader2{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  padding: 0 10px;
+  border-bottom: 1px solid #999;
+}
+.sobiqItems> .searchItem{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+.userTasks {
+  grid-column: span 2; /* tasks elementi 2 ustunni egallaydi */
+  margin-right: 0;
+}
+
+.userName {
+  margin-left: 0;
+}
+.userSurname {
+  margin-left: 0;
+}
+.userLocation {
+  margin-right: 0;
+}
+.userDebt {
+  margin-right: 0;
+}
+
+.searchHeader > div {
+  display: flex;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.searchHeader > div > i {
+  opacity: 0;
+}
+.searchHeader > div:hover .fa-arrow-up {
+  opacity: 1;
+}
+.searchItems {
+  width: 100%;
+  min-height: 100px;
+  padding-top: 20px;
+}
+.searchItem {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Ustunlar soni 5 ga teng bo'lsin */
+  gap: 10px;
+}
+.searchItem > div {
+  padding: 8px 24px 8px 12px;
+}
+
+.userTasks > button {
+  margin: 0 25px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 19px;
+}
+.sendMoney {
+  color: green;
+}
+.getMoney {
+  color: red;
+}
+.getSendBtn {
+  color: blueviolet;
+}
+.infoUser {
+  color: rgb(58, 5, 108);
+}
+.changeUser {
+  color: #999;
+}
+
+/* qarzdor qo'shish */
+
+.addNewDebt {
+  width: 350px;
+  min-height: 500px;
+  background-color: #fff;
+  padding-bottom: 15px;
+  display: none;
+}
+.EditUser{
+  width: 350px;
+  min-height: 500px;
+  background-color: #fff;
+  padding-bottom: 15px;
+  display: none;
+}
+.addNewTitle {
+  width: 100%;
+  height: 40px;
+  background-color: blueviolet;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 0 15px;
+}
+.addNewTitle > p {
+  margin-left: 0;
+}
+.addInput {
+  width: 100%;
+  padding: 0 15px;
+}
+.labelInput {
+  min-width: 100%;
+  height: 35px;
+  border: 1px solid #999;
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+.labelInput > i {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+}
+.labelInput > input {
+  width: 90%;
+  height: 100%;
+  border: none;
+  outline: none;
+}
+.textArea {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100px;
+  max-height: 100px;
+  padding: 10px 20px;
+  margin-top: 15px;
+}
+.flexBtn {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  padding-right: 15px;
+}
+.sendBtn {
+  margin-right: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: green;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+}
+.closeBtn {
+  margin: 0;
+  margin-left: 35%;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: blueviolet;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.payBox {
+  width: 300px;
+  height: 150px;
+  background-color: #fff;
+  display: none;
+}
+.payBox > .flexBtn > .closeBtn {
+  margin-left: 30%;
+}
+.payTitle {
+  width: 100%;
+  height: 40px;
+  background-color: green;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 0 15px;
+}
+.payTitle > p {
+  margin: 0;
+  margin-left: 0;
+}
+.payTitle > h4 {
+  margin-right: 0;
+}
+.payInput {
+  padding: 0 15px;
+}
+.noItems {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.newDebtBox {
+  width: 300px;
+  height: 200px;
+  background-color: #fff;
+  display: none;
+}
+.newDebtBox > .payTitle {
+  background-color: red;
+}
+.historyTransfer {
+  max-width: 600px;
+  width: 100%;
+  min-height: 300px;
+  background-color: #fff;
+  padding: 15px;
+  display: none;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.historyBox {
+  width: 100%;
+  /* min-height: 250px; */
+}
+.historyList {
+  width: 100%;
+  display: flex;
+}
+.historyItem1 {
+  width: 49%;
+  height: 100%;
+  margin-left: 0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.historyItem2 {
+  width: 49%;
+  height: 100%;
+  margin-right: 0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.historyTitle {
+  width: 100%;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  color: #fff;
+}
+.historyItem1 > .historyTitle {
+  background-color: red;
+}
+.historyItem2 > .historyTitle {
+  background-color: green;
+}
+.itemsTitle {
+  width: 100%;
+  height: 33px;
+  border-bottom: 1px solid #cececed8;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+}
+.itemsTitle > span:first-child {
+  margin-left: 0;
+  width: 60%;
+}
+
+.itemsTitle > span:last-child {
+  width: 40%;
+  margin-left: 0;
+}
+.i1span > i {
+  color: red;
+}
+.i2span > i {
+  color: green;
+}
+.historyItem {
+  width: 100%;
+  height: 33px;
+  border-bottom: 1px solid #cececed8;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+}
+.historyItem > p {
+  width: 60%;
+  margin-left: 0;
+}
+.historyItem > h4 {
+  width: 40%;
+  margin-left: 0;
+}
+.historyInfo {
+  width: 100%;
+  height: 33px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+}
+.historyInfoDebt {
+  width: 100%;
+  height: 33px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+}
+.historyInfo > p {
+  width: 60%;
+  margin-left: 0;
+}
+.historyInfo > h4 {
+  width: 40%;
+  margin-left: 0;
+  color: green;
+}
+.historyInfoDebt > p {
+  width: 60%;
+  margin-left: 0;
+}
+.historyInfoDebt > h4 {
+  width: 40%;
+  margin-left: 0;
+  color: red;
+}
+.debtInfo {
+  margin-top: 30px;
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: blue;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.exit--btn {
+  width: 100%;
+  margin-top: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+.exit--btn > button {
+  border: none;
+  outline: none;
+  margin-right: 0;
+  background-color: rgb(231, 222, 240);
+  color: blueviolet;
+  padding: 4px 7px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.InfoUser {
+  width: 400px;
+  height: 500px;
+  border-radius: 10px;
+  background-color: white;
+  display: none;
+}
+.infoImg {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 72px;
+  color: #fff;
+  background-color: blueviolet;
+  border-radius: 10px 10px 0 0;
+}
+.userInfo{
+  width: 100%;
+  height: 60%;
+  border-radius: 0 0 10px 10px;
+  padding: 10px 20px 20px 20px;
+  position: relative;
+}
+.user{
+  width: 100%;
+  min-height: 35px;
+  display: flex;
+align-items: center;
+
+}
+.user>i{
+  margin-left: 0;
+  font-size: 18px;
+} 
+.user>p{
+  margin-right: 0;
+}
+.exit-btn{
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+.exit-btn>button{
+  border: none;
+  outline: none;
+  margin-right: 0;
+  background-color: rgb(231, 222, 240);
+  color: blueviolet;
+  padding: 4px 7px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.userTitle>h4{
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+}
+.hisobot{
+  width: 100%;
+  padding: 50px 0;
+
+}
+.hisobot-Title{
+  width: 100%;
+height: 170px;
+display: flex;
+align-items: center;
+margin-bottom: 30px;
+}
+.hisobotItem{
+  width: 350px;
+  height: 150px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 5px;
+}
+.hisobotItem:first-child{
+  border-top: 15px solid red;
+
+}
+.hisobotItem:nth-child(2){
+  border-top: 15px solid blue;
+
+}
+.hisobotItem:last-child{
+  border-top: 15px solid green;
+
+}
+.hisobotItem>h4{
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+  margin-top: 15px;
+}
+.hisobotItem>div{
+  max-width: 100%;
+  display: flex;
+  margin-top: 15px;
+  font-size: 20px;
+}
+.hisobotItem> div> .fa-calendar-minus{
+  color: red;
+}
+.hisobotItem> div> .fa-calendar-plus{
+  color: green;
+}
+.hisobotItem>div> p:first-child{
+  color: red;
+}
+.hisobotItem>div> p:last-child{
+  color: green;
+}
+.hisobotData{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 20px;
+}
+.hisobotData>input{
+  width: 100%;
+  height: 50px;
+}
+.hisobotInp{
+  width: 100%;
+  height: 50px;
+  position: relative;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+}
+.hisobotInp:first-child{
+  border: 1px solid black;
+
+  color: black;
+}
+.hisobotInp:nth-child(2){
+  border: 1px solid green;
+
+
+  color: green;
+}
+.hisobotInp:nth-child(2)>input{
+  color: green;
+}
+.hisobotInp:last-child>input{
+
+  color: red;
+
+}
+.hisobotInp:last-child{
+  color: red;
+  border: 1px solid red;
+
+}
+.hisobotInp>input{
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  padding-left: 10px;
+  background-color: transparent;
+}
+.hisobotInp>span{
+  position: absolute;
+  padding: 0 5px;
+  text-align: center;
+  top: -10px;
+  left: 20px;
+  z-index: 1;
+  background-color: white;
+}
