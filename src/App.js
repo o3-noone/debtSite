@@ -1,19 +1,54 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from "react-router-dom";
 import "./App.css";
-import Header from "./components/header/header";
-import MainUz from "./components/main/mainUz";
+import Main from "./components/main/main";
 import NavigateLanguage from "./components/navigate/navigateLanguage";
-import MainRu from "./components/main/mainRu";
+import Header from "./components/header/header";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [language, setLanguage] = useState("uz");
+  useEffect(() => {
+    const languageLocal = localStorage.getItem("language");
+    if (languageLocal) {
+      setLanguage(languageLocal);
+    }
+  }, []);
   return (
     <Router>
       <div className="wrapper">
-        <Header />
         <Routes>
           <Route path="/" element={<NavigateLanguage />} />
-          <Route path="/uz" element={<MainUz />} />
-          <Route path="/ru" element={<MainRu />} />
+          <Route
+            path="/uz"
+            element={
+              <>
+                <Header language={language} setLanguage={setLanguage} />
+                <Main language={language} />
+              </>
+            }
+          />
+          <Route
+            path="/ru"
+            element={
+              <>
+                <Header language={language} setLanguage={setLanguage} />
+                <Main language={language} />
+              </>
+            }
+          />
+          <Route
+            path="/en"
+            element={
+              <>
+                <Header language={language} setLanguage={setLanguage} />
+                <Main language={language} />
+              </>
+            }
+          />
         </Routes>
       </div>
     </Router>
@@ -21,3 +56,4 @@ function App() {
 }
 
 export default App;
+

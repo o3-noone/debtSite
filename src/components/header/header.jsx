@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-
-const Header = () => {
+import { useNavigate } from "react-router-dom";
+import dataLanguage from "../data/dataLanguage";
+const Header = ({language, setLanguage}) => {
     const [navId, setNavId] = useState("");
     const localStore = localStorage.getItem("activeBtn");
   useEffect(() => {
@@ -11,19 +12,25 @@ const Header = () => {
       setNavId(localStore);
     }
   }, []);
+  const navigate=useNavigate()
+  useEffect(() => {
+    navigate(`/${language}`);
+  }, [language]); 
 
   const setIdLocal = (id) => {
     localStorage.setItem("activeBtn", id);
     setNavId(id);
   };
-//   console.log(navId, "navid");
-//   console.log(localStore, "local");
+  const handleChange = (e) => {
+    setLanguage(e.target.value);
+    localStorage.setItem("language", e.target.value);
+  };
   return (
     <div className="header">
       <div className="logoDiv">
         <div className="logo">
           <a href="#">
-            <p id="logoText">Qarz daftari</p>
+            <p id="logoText">{dataLanguage[`logo${language}`]}</p>
           </a>
         </div>
       </div>
@@ -33,30 +40,31 @@ const Header = () => {
           onClick={() => setIdLocal("1")}
           id="text1"
         >
-          Qarzdorlar
+          {dataLanguage[`debt${language}`]}
         </div>
         <div
           className={`headerItem ${localStore === "2" ? "activeBtn" : ""}`}
           onClick={() => setIdLocal("2")}
           id="text2"
         >
-          Baza
+                    {dataLanguage[`baza${language}`]}
+
         </div>
         <div
           className={`headerItem ${localStore === "3" ? "activeBtn" : ""}`}
           onClick={() => setIdLocal("3")}
           id="text3"
         >
-          Hisobot
+                            {dataLanguage[`hisobot${language}`]}
         </div>
       </div>
       <div className="headerBtns">
         <div className="language">
-          <select name="language" id="language" defaultValue="uz">
-            <option value="uz">Uzbek</option>
-            <option value="en">English</option>
-            <option value="ru">Russian</option>
-          </select>
+        <select name="language" id="language" value={language} onChange={handleChange}>
+        <option value="uz">Uzbek</option>
+        <option value="en">English</option>
+        <option value="ru">Russian</option>
+      </select>
         </div>
 
         <div className="themeSite">
