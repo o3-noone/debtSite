@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import dataLanguage from "../data/dataLanguage";
-const Header = ({language, setLanguage}) => {
-    const [navId, setNavId] = useState("");
-    const localStore = localStorage.getItem("activeBtn");
+const Header = ({
+  language,
+  setLanguage,
+  navId,
+  setNavId,
+  theme,
+  setTheme,
+}) => {
+  const localStore = localStorage.getItem("activeBtn");
   useEffect(() => {
     if (!localStore) {
       localStorage.setItem("activeBtn", "1");
@@ -12,10 +18,20 @@ const Header = ({language, setLanguage}) => {
       setNavId(localStore);
     }
   }, []);
-  const navigate=useNavigate()
+  const themeLocal = localStorage.getItem("theme");
+  useEffect(() => {
+    const body = document.querySelector(".body");
+    if (themeLocal === "true") {
+      body.classList.add("dark-mode");
+    } else {
+      body.classList.remove("dark-mode");
+    }
+  }, [theme]);
+
+  const navigate = useNavigate();
   useEffect(() => {
     navigate(`/${language}`);
-  }, [language]); 
+  }, [language]);
 
   const setIdLocal = (id) => {
     localStorage.setItem("activeBtn", id);
@@ -47,29 +63,39 @@ const Header = ({language, setLanguage}) => {
           onClick={() => setIdLocal("2")}
           id="text2"
         >
-                    {dataLanguage[`baza${language}`]}
-
+          {dataLanguage[`baza${language}`]}
         </div>
         <div
           className={`headerItem ${localStore === "3" ? "activeBtn" : ""}`}
           onClick={() => setIdLocal("3")}
           id="text3"
         >
-                            {dataLanguage[`hisobot${language}`]}
+          {dataLanguage[`hisobot${language}`]}
         </div>
       </div>
       <div className="headerBtns">
         <div className="language">
-        <select name="language" id="language" value={language} onChange={handleChange}>
-        <option value="uz">Uzbek</option>
-        <option value="en">English</option>
-        <option value="ru">Russian</option>
-      </select>
+          <select
+            name="language"
+            id="language"
+            value={language}
+            onChange={handleChange}
+          >
+            <option value="uz">Uzbek</option>
+            <option value="en">English</option>
+            <option value="ru">Russian</option>
+          </select>
         </div>
 
         <div className="themeSite">
           <label className="toggle">
-            <input id="switch" className="input" type="checkbox" />
+            <input
+              id="switch"
+              className="input"
+              onChange={(e) => setTheme(e.target.checked)}
+              checked={theme}
+              type="checkbox"
+            />
             <div className="icon icon--moon">
               <svg
                 height="20"

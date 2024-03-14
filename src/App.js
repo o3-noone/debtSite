@@ -10,6 +10,9 @@ import Header from "./components/header/header";
 import { useEffect, useState } from "react";
 
 function App() {
+  const [theme, setTheme] = useState(false);
+  localStorage.setItem("theme", theme);
+  const [navId, setNavId]=useState("1")
   const [language, setLanguage] = useState("uz");
   useEffect(() => {
     const languageLocal = localStorage.getItem("language");
@@ -26,8 +29,8 @@ function App() {
             path="/uz"
             element={
               <>
-                <Header language={language} setLanguage={setLanguage} />
-                <Main language={language} />
+                <Header setTheme={setTheme} theme={theme} navId={navId} setNavId={setNavId} language={language} setLanguage={setLanguage} />
+                <Main navId={navId} setNavId={setNavId} language={language} />
               </>
             }
           />
@@ -35,8 +38,8 @@ function App() {
             path="/ru"
             element={
               <>
-                <Header language={language} setLanguage={setLanguage} />
-                <Main language={language} />
+                <Header setTheme={setTheme} theme={theme} navId={navId} setNavId={setNavId} language={language} setLanguage={setLanguage} />
+                <Main navId={navId} setNavId={setNavId} language={language} />
               </>
             }
           />
@@ -44,8 +47,8 @@ function App() {
             path="/en"
             element={
               <>
-                <Header language={language} setLanguage={setLanguage} />
-                <Main language={language} />
+                <Header setTheme={setTheme} theme={theme} navId={navId} setNavId={setNavId} language={language} setLanguage={setLanguage} />
+                <Main navId={navId} setNavId={setNavId} language={language} />
               </>
             }
           />

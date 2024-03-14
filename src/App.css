@@ -5,6 +5,10 @@
   margin: 0 auto;
   padding: 0;
 }
+.t1ease{
+  transition: 1s ease;
+
+}
 .dark-mode {
   background-color: #212121;
   transition: 1s ease;
@@ -13,7 +17,6 @@
 .wrapper {
   min-width: 100%;
   min-height: 100vh;
-  transition: 1s ease;
 }
 .container {
   min-width: 100%;
@@ -33,7 +36,11 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 25px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
 .logoDiv {
@@ -143,10 +150,10 @@
 .settingIcon:hover {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-.DeActiveContent{
+.DeActiveContent {
   display: none;
 }
-.ActiveContent{
+.ActiveContent {
   display: block;
 }
 .main {
@@ -154,14 +161,14 @@
   width: 100%;
   padding: 0 50px;
 }
-.title{
+.title {
   width: 100%;
   height: 100px;
   display: flex;
   align-items: center;
   font-size: 23px;
 }
-.sobiqItems{
+.sobiqItems {
   padding: 15px 0 35px 0;
 }
 .newUser {
@@ -215,6 +222,9 @@
   grid-template-columns: repeat(6, 1fr); /* Ustunlar soni 5 ga teng bo'lsin */
   gap: 10px; /* Uchun oralig'i o'rnaturish */
   border-bottom: 1px solid #999;
+  font-family: "Kanit", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
 .userName,
 .userSurname,
@@ -223,14 +233,14 @@
   grid-column: span 1; /* Har bir element 1 ustunni boshatadi */
 }
 
- .searchHeader2{
+.searchHeader2 {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
   padding: 0 10px;
   border-bottom: 1px solid #999;
 }
-.sobiqItems> .searchItem{
+.sobiqItems > .searchItem {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
@@ -310,12 +320,11 @@
   background-color: #fff;
   padding-bottom: 15px;
 }
-.EditUser{
+.EditUser {
   width: 350px;
   min-height: 500px;
   background-color: #fff;
   padding-bottom: 15px;
-  display: none;
 }
 .addNewTitle {
   width: 100%;
@@ -365,11 +374,13 @@
 }
 .flexBtn {
   margin-top: 30px;
-  width: 100%;
+  max-width: 100%;
   display: flex;
-  padding-right: 15px;
+  margin-right: 0;
+  padding: 0 15px;
 }
 .sendBtn {
+  max-width: 150px;
   margin-right: 0;
   border: none;
   outline: none;
@@ -381,7 +392,7 @@
 }
 .closeBtn {
   margin: 0;
-  margin-left: 35%;
+  max-width: 200px;
   font-weight: 700;
   border: none;
   outline: none;
@@ -394,7 +405,6 @@
   width: 300px;
   height: 150px;
   background-color: #fff;
-  display: none;
 }
 .payBox > .flexBtn > .closeBtn {
   margin-left: 30%;
@@ -429,7 +439,6 @@
   width: 300px;
   height: 200px;
   background-color: #fff;
-  display: none;
 }
 .newDebtBox > .payTitle {
   background-color: red;
@@ -440,7 +449,6 @@
   min-height: 300px;
   background-color: #fff;
   padding: 15px;
-  display: none;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .historyBox {
@@ -584,7 +592,6 @@
   height: 500px;
   border-radius: 10px;
   background-color: white;
-  display: none;
 }
 .infoImg {
   width: 100%;
@@ -597,33 +604,32 @@
   background-color: blueviolet;
   border-radius: 10px 10px 0 0;
 }
-.userInfo{
+.userInfo {
   width: 100%;
   height: 60%;
   border-radius: 0 0 10px 10px;
   padding: 10px 20px 20px 20px;
   position: relative;
 }
-.user{
+.user {
   width: 100%;
   min-height: 35px;
   display: flex;
-align-items: center;
-
+  align-items: center;
 }
-.user>i{
+.user > i {
   margin-left: 0;
   font-size: 18px;
-} 
-.user>p{
+}
+.user > p {
   margin-right: 0;
 }
-.exit-btn{
+.exit-btn {
   position: absolute;
   bottom: 15px;
   right: 15px;
 }
-.exit-btn>button{
+.exit-btn > button {
   border: none;
   outline: none;
   margin-right: 0;
@@ -634,75 +640,71 @@ align-items: center;
   text-transform: uppercase;
   cursor: pointer;
 }
-.userTitle>h4{
+.userTitle > h4 {
   width: 100%;
   text-align: center;
   font-size: 22px;
 }
-.hisobot{
+.hisobot {
   width: 100%;
   padding: 50px 0;
-
 }
-.hisobot-Title{
+.hisobot-Title {
   width: 100%;
-height: 170px;
-display: flex;
-align-items: center;
-margin-bottom: 30px;
+  height: 170px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
 }
-.hisobotItem{
+.hisobotItem {
   width: 350px;
   height: 150px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 5px;
 }
-.hisobotItem:first-child{
+.hisobotItem:first-child {
   border-top: 15px solid red;
-
 }
-.hisobotItem:nth-child(2){
+.hisobotItem:nth-child(2) {
   border-top: 15px solid blue;
-
 }
-.hisobotItem:last-child{
+.hisobotItem:last-child {
   border-top: 15px solid green;
-
 }
-.hisobotItem>h4{
+.hisobotItem > h4 {
   width: 100%;
   text-align: center;
   font-size: 22px;
   margin-top: 15px;
 }
-.hisobotItem>div{
+.hisobotItem > div {
   max-width: 100%;
   display: flex;
   margin-top: 15px;
   font-size: 20px;
 }
-.hisobotItem> div> .fa-calendar-minus{
+.hisobotItem > div > .fa-calendar-minus {
   color: red;
 }
-.hisobotItem> div> .fa-calendar-plus{
+.hisobotItem > div > .fa-calendar-plus {
   color: green;
 }
-.hisobotItem>div> p:first-child{
+.hisobotItem > div > p:first-child {
   color: red;
 }
-.hisobotItem>div> p:last-child{
+.hisobotItem > div > p:last-child {
   color: green;
 }
-.hisobotData{
+.hisobotData {
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 20px;
 }
-.hisobotData>input{
+.hisobotData > input {
   width: 100%;
   height: 50px;
 }
-.hisobotInp{
+.hisobotInp {
   width: 100%;
   height: 50px;
   position: relative;
@@ -711,31 +713,35 @@ margin-bottom: 30px;
   align-items: center;
   padding: 0 15px;
 }
-.hisobotInp:first-child{
+.hisobotInp:first-child {
   border: 1px solid black;
 
   color: black;
 }
-.hisobotInp:nth-child(2){
+.hisobotInp:nth-child(2) {
   border: 1px solid green;
 
-
   color: green;
 }
-.hisobotInp:nth-child(2)>input{
+.hisobotInp:nth-child(2) > input {
   color: green;
 }
-.hisobotInp:last-child>input{
-
+.hisobotInp:last-child > input {
   color: red;
-
 }
-.hisobotInp:last-child{
+.hisobotInp:last-child {
   color: red;
   border: 1px solid red;
-
 }
-.hisobotInp>input{
+.hisobotInp > p {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  background-color: transparent;
+}
+.hisobotInp > input {
   width: 100%;
   height: 100%;
   outline: none;
@@ -743,7 +749,7 @@ margin-bottom: 30px;
   padding-left: 10px;
   background-color: transparent;
 }
-.hisobotInp>span{
+.hisobotInp > span {
   position: absolute;
   padding: 0 5px;
   text-align: center;
