@@ -22,7 +22,7 @@ function App() {
   }, []);
   return (
     <Router>
-      <div className="wrapper">
+      <>
         <Routes>
           <Route path="/" element={<NavigateLanguage />} />
           <Route
@@ -53,7 +53,7 @@ function App() {
             }
           />
         </Routes>
-      </div>
+      </>
     </Router>
   );
 }

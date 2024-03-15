@@ -20,11 +20,19 @@ const Header = ({
   }, []);
   const themeLocal = localStorage.getItem("theme");
   useEffect(() => {
-    const body = document.querySelector(".body");
+    const body = document.querySelector(".wrapper");
+    const header= document.querySelector(".header")
     if (themeLocal === "true") {
       body.classList.add("dark-mode");
+      body.classList.remove("white-mode");
+      header.classList.add("dark-mode");
+      header.classList.remove("white-mode");
     } else {
       body.classList.remove("dark-mode");
+      body.classList.add("white-mode");
+      header.classList.remove("dark-mode");
+      header.classList.add("white-mode");
+
     }
   }, [theme]);
 

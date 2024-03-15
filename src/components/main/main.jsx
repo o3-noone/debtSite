@@ -20,79 +20,81 @@ const Main = ({ language, navId }) => {
   const [editUser, setEditUser] = useState("");
   return (
     <>
-      {navId === "1" ? (
-        <>
-          <div className="main">
-            <div className="newUser">
-              <button
-                className="addUser"
-                onClick={() => setNewDebt("true")}
-                id="text4"
-              >
-                {dataLanguage[`newDebtr${language}`]}{" "}
-                <i className="fa-solid fa-plus"></i>
-              </button>
-            </div>
-            <div className="usersBox">
-              <div className="user1Search">
-                <input
-                  type="search"
-                  name="search"
-                  id="search1"
-                  placeholder={dataLanguage[`search${language}`]}
-                />
+      <div className="wrapper">
+        {navId === "1" ? (
+          <>
+            <div className="main">
+              <div className="newUser">
+                <button
+                  className="addUser"
+                  onClick={() => setNewDebt("true")}
+                  id="text4"
+                >
+                  {dataLanguage[`newDebtr${language}`]}{" "}
+                  <i className="fa-solid fa-plus"></i>
+                </button>
               </div>
-              <div className="searchList">
-                <div className="searchHeader">
-                  <div className="userName" id="text5">
-                    {dataLanguage[`ism${language}`]}{" "}
-                    <i className="fa-solid fa-arrow-up"></i>
+              <div className="usersBox">
+                <div className="user1Search">
+                  <input
+                    type="search"
+                    name="search"
+                    id="search1"
+                    placeholder={dataLanguage[`search${language}`]}
+                  />
+                </div>
+                <div className="searchList">
+                  <div className="searchHeader">
+                    <div className="userName" id="text5">
+                      {dataLanguage[`ism${language}`]}{" "}
+                      <i className="fa-solid fa-arrow-up"></i>
+                    </div>
+                    <div className="userSurname" id="text6">
+                      {dataLanguage[`familiya${language}`]}{" "}
+                      <i className="fa-solid fa-arrow-up"></i>
+                    </div>
+                    <div className="userLocation" id="text7">
+                      {dataLanguage[`location${language}`]}{" "}
+                      <i className="fa-solid fa-arrow-up"></i>
+                    </div>
+                    <div className="userDebt" id="text8">
+                      {dataLanguage[`qarz${language}`]}{" "}
+                      <i className="fa-solid fa-arrow-up"></i>
+                    </div>
+                    <div className="userTasks" id="text9">
+                      {dataLanguage[`amallar${language}`]}{" "}
+                      <i className="fa-solid fa-arrow-up"></i>
+                    </div>
                   </div>
-                  <div className="userSurname" id="text6">
-                    {dataLanguage[`familiya${language}`]}{" "}
-                    <i className="fa-solid fa-arrow-up"></i>
-                  </div>
-                  <div className="userLocation" id="text7">
-                    {dataLanguage[`location${language}`]}{" "}
-                    <i className="fa-solid fa-arrow-up"></i>
-                  </div>
-                  <div className="userDebt" id="text8">
-                    {dataLanguage[`qarz${language}`]}{" "}
-                    <i className="fa-solid fa-arrow-up"></i>
-                  </div>
-                  <div className="userTasks" id="text9">
-                    {dataLanguage[`amallar${language}`]}{" "}
-                    <i className="fa-solid fa-arrow-up"></i>
+                  <div className="searchItems">
+                    {filterData.map((item) => (
+                      <UserItems
+                        key={item.id}
+                        item={item}
+                        language={language}
+                        setPayBox={setPayBox}
+                        setAddNewPay={setAddNewPay}
+                        setHistory={setHistory}
+                        setUserInfo={setUserInfo}
+                        setEditUser={setEditUser}
+                      />
+                    ))}
                   </div>
                 </div>
-                <div className="searchItems">
-                  {filterData.map((item) => (
-                    <UserItems
-                      key={item.id}
-                      item={item}
-                      language={language}
-                      setPayBox={setPayBox}
-                      setAddNewPay={setAddNewPay}
-                      setHistory={setHistory}
-                      setUserInfo={setUserInfo}
-                      setEditUser={setEditUser}
-                    />
-                  ))}
-                </div>
               </div>
             </div>
-          </div>
-        </>
-      ) : navId === "2" ? (
-        <Sobiq language={language} />
-      ) : (
-        <Hisobot language={language} />
-      )}
-      {newDebt ? (
-        <NewDebt language={language} setNewDebt={setNewDebt} />
-      ) : (
-        <></>
-      )}
+          </>
+        ) : navId === "2" ? (
+          <Sobiq language={language} />
+        ) : (
+          <Hisobot language={language} />
+        )}
+      </div>
+        {newDebt ? (
+          <NewDebt language={language} setNewDebt={setNewDebt} />
+        ) : (
+          <></>
+        )}
       {payBox ? (
         <PayBox language={language} payBox={payBox} setPayBox={setPayBox} />
       ) : (
@@ -117,12 +119,20 @@ const Main = ({ language, navId }) => {
         <></>
       )}
       {userInfo ? (
-        <UserInfo userInfo={userInfo} language={language} setUserInfo={setUserInfo} />
+        <UserInfo
+          userInfo={userInfo}
+          language={language}
+          setUserInfo={setUserInfo}
+        />
       ) : (
         <></>
       )}
       {editUser ? (
-        <EditUser editUser={editUser} language={language} setEditUser={setEditUser} />
+        <EditUser
+          editUser={editUser}
+          language={language}
+          setEditUser={setEditUser}
+        />
       ) : (
         <></>
       )}

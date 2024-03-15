@@ -5,18 +5,27 @@
   margin: 0 auto;
   padding: 0;
 }
-.t1ease{
+.t1ease {
   transition: 1s ease;
-
 }
 .dark-mode {
   background-color: #212121;
   transition: 1s ease;
   color: white;
 }
+.white-mode {
+  background-color: white;
+  transition: 1s ease;
+  color: black;
+  
+}
 .wrapper {
   min-width: 100%;
   min-height: 100vh;
+
+}
+::-webkit-scrollbar{
+  width: 0.001px;
 }
 .container {
   min-width: 100%;
@@ -41,6 +50,7 @@
   font-style: normal;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    border-bottom: 1px solid #bbbbbb;
 }
 
 .logoDiv {
